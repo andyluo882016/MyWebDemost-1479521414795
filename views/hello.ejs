@@ -25,6 +25,24 @@
       <h2>AngularJS Sample Application</h2>
       <div ng-app = "mainApp" ng-controller = "studentController">
          Cloudant DB: {{myWelcome | json}} <br>
+         <hr>
+         <table>
+            <tr>
+               <th>id</th>
+               <th>Name</th>
+               <th>age</th>
+               <th>major</th>
+               <th>GPA</th>
+            </tr>
+         
+            <tr ng-repeat = "student in myWelcome">
+              <td>{{ student }}</td>
+               <td>{{ student.name }}</td>
+               <td>{{ student.age }}</td>
+               <td>{{ student.GPA }}</td>
+            </tr>
+         </table>
+         <hr>
          <form name = "studentForm" novalidate>
             <table border = "0">
                <tr>
