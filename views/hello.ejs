@@ -24,7 +24,7 @@
       
       <h2>AngularJS Sample Application</h2>
       <div ng-app = "mainApp" ng-controller = "studentController">
-         
+         Cloudant DB: {{.myWelcome | json}} <br>
          <form name = "studentForm" novalidate>
             <table border = "0">
                <tr>
@@ -73,7 +73,7 @@
       <script>
          var mainApp = angular.module("mainApp", []);
          
-         mainApp.controller('studentController', function($scope) {
+         mainApp.controller('studentController', function($scope, $http) {
             $scope.reset = function(){
                $scope.firstName = "Mahesh";
                $scope.lastName = "Parashar";
@@ -81,6 +81,11 @@
             }
             
             $scope.reset();
+           
+            $http.get('https://mywebdemost.mybluemix.net/showall').then(function(response) {
+              $scope.myWelcome = response;
+          });
+
          });
       </script>
       
