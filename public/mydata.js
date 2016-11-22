@@ -39,7 +39,7 @@ var dbs;
        if (doc.age){
          console.log('Add to person : %j', doc);
          student[doc._id]=doc.age
-         person[doc._id]={'name':doc.name, 'age':doc.age, 'major':doc.major, 'GPA':doc.GPA}
+         person[doc._id]={'_id':doc._id, 'name':doc.name, 'age':doc.age, 'major':doc.major, 'GPA':doc.GPA}
        }
        console.log('all datas',student);
         
