@@ -26,6 +26,9 @@ app.use(express.static(path.join(__dirname, 'public')));
 var routes = require("./public/mydata");
 routes(app);
 
+var routes1 = require("./public/employee");
+routes1(app);
+
 // serve the files out of ./public as our main files
 app.use(express.static(__dirname + '/public'));
 
