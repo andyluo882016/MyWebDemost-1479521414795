@@ -1,0 +1,94 @@
+<!DOCTYPE html>          
+<html>          
+<head> <!-- www.techstrikers.com -->          
+<title>Manual Initialization Using Bootstrap</title>          
+
+
+<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+<!-- src="reviewEmpapp.js"></script> --> 
+
+<!-- <script src="twowaydy.js"></script> -->
+<script src="myview.js"></script> 
+
+
+         
+</head>    
+     
+        
+<body ng-app = "mainApp">
+  
+
+
+  <div ng-controller="empCtrl">
+
+    
+    <table border="1" style="width:50%">
+     <tr>
+    <td>Name</td>
+    <td>ID: </td> 
+    <td>IMages</td>
+  </tr>
+       <tr ng-repeat=" en in students">
+       <td>{{en.name}}</td>
+       <td>{{en.isbn}}</td>
+       <td> <img width="100" ng-src="{{en.image}}"></td>
+       </tr>
+    </table><br><hr>
+  <table border="1" style="width:50%">
+     <tr>
+    <td>Name</td>
+    <td>Age: </td>
+    <td>Salary</td> 
+    <td>IMages</td>
+  </tr>
+       <tr ng-repeat=" em in names">
+       <td>{{em.name}}</td>
+       <td>{{em.age}}</td>
+       <td>{{em.salary}}</td>
+       <td> <img width="100" ng-src="{{em.image}}"></td>
+       </tr>
+    </table>
+   <br>
+   <table>
+
+  <tr ng-repeat="x in names2">
+    <td>{{ x.name }}</td>
+    <td>{{ x.isbn }}</td>
+  </tr>
+</table>
+  </div>
+   <br>
+ 
+  <div ng-controller = "CalcController">
+        <p>pppoo{{number}}</p>
+         <p>Enter a number: <input type = "number" ng-model = "number" /></p>
+         <button ng-click = "square()">X<sup>2</sup></button>
+         <p>Result: {{result}}</p>
+  </div>
+  
+ 
+
+
+ <script>
+
+  var mainapp = angular.module("mainApp", ['viewApp']);
+   var url="http://localhost:3300/book";
+   
+
+   mainapp.controller("empCtrl", function($scope, $http) {
+     
+     $scope.empls={};
+    $http.get(url).success( function(response) {
+      $scope.students = response;
+    });
+    
+   
+    
+});
+  
+ </script> 
+
+        
+  
+</body>          
+</html>   

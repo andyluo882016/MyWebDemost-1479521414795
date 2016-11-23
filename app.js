@@ -38,7 +38,10 @@ app.get('/search', function(req, res) {
 
 });
 
-
+app.get('/AllImages', function(req, res) {
+     res.render("getAllemployees", {});
+     
+});
 // start server on the specified port and binding host
 app.listen(appEnv.port, '0.0.0.0', function() {
   // print a message when the server starts listening
