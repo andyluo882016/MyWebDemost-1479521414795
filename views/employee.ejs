@@ -41,6 +41,7 @@
                <th>age</th>
                <th>Title</th>
                <th>Salary</th>
+               <th>Image</th>
             </tr>
          
             <tr ng-repeat = "student in myWelcome">
@@ -49,6 +50,8 @@
                <td>{{ student.age }}</td>
                 <td>{{ student.title }}</td>
                <td>{{ student.salary}}</td>
+                <td><img width="100" ng-src="{{student.image}}"></td>
+               
             </tr>
          </table>
          <hr>
