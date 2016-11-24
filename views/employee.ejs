@@ -6,19 +6,11 @@
 
 <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
 <!-- src="reviewEmpapp.js"></script> --> 
-
-<!-- <script src="twowaydy.js"></script> -->
-<script src="myview.js"></script> 
-
-
-         
 </head>    
      
         
 <body ng-app = "mainApp">
   
-
-
   <div ng-controller="empCtrl">
 
     
@@ -45,16 +37,6 @@
   </div>
    <br>
  
-  <div ng-controller = "CalcController">
-        <p>pppoo{{number}}</p>
-         <p>Enter a number: <input type = "number" ng-model = "number" /></p>
-         <button ng-click = "square()">X<sup>2</sup></button>
-         <p>Result: {{result}}</p>
-  </div>
-  
- 
-
-
  <script>
 
   var mainapp = angular.module("mainApp", ['viewApp']);
