@@ -59,7 +59,13 @@
 
        <p><input type="text" ng-model="tdas"></p>
          <hr>
-    <table>
+       <table>
+           <tr>
+               <th>Name</th>
+               <th>City</th>
+               <th>Country</th>
+            </tr>
+         
   <tr ng-repeat="y in contry | filter:tdas | orderBy:'country'">
     <td>{{ y.Name }}</td>
     <td>{{ y.City }}</td>
