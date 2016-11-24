@@ -45,12 +45,9 @@
 
    mainapp.controller("empCtrl", function($scope, $http) {
      
-     $scope.empls={};
-    $http.get(url).success( function(response) {
-      $scope.employees = response.data;
-    });
-    
-   
+    $http.get('https://mywebdemost.mybluemix.net/employees').then(function(response) {
+              $scope.employees = response.data;
+          });
     
 });
   
