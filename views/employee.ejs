@@ -1,59 +1,120 @@
-<!DOCTYPE html>          
-<html>          
-<head> <!-- www.techstrikers.com -->          
-<title>Manual Initialization Using Bootstrap</title>          
-
-
-<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
-<!-- src="reviewEmpapp.js"></script> --> 
-</head>    
-     
+<html>
+   <head>
+      <title>Angular JS Forms</title>
+      <script src = "https://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.min.js"></script>
+      
+      <style>
+         table, th , td {
+            border: 1px solid grey;
+            border-collapse: collapse;
+            padding: 5px;
+         }
+         
+         table tr:nth-child(odd) {
+            background-color: #f2f2f2;
+         }
+         
+         table tr:nth-child(even) {
+            background-color: #ffffff;
+         }
+      </style>
+      
+   </head>
+   <body>
+      
+      <h2>AngularJS Sample Application</h2>
+      <div ng-app = "mainApp" ng-controller = "studentController">
+         Cloudant DB: {{myWelcome | json}} <br>
+         <hr>
+         <table>
+      <tr>
+        <td style= "width:30%;">
+          <img class = "newappIcon" src="images/alaska.jpg">
+        </td>
         
-<body ng-app = "mainApp">
-  
-  <div ng-controller="empCtrl">
-
-    
-    <table border="1" style="width:50%">
-     <tr>
-      <td>ID: </td> 
-    <td>Name</td>
-    <td>Age </td>
-     <td>status </td>
-      <td>title</td> 
-       <td>salary </td> 
-    <td>Image</td>
-  </tr>
-      <tr ng-repeat="x in employees ">
-     <td>{{ x._id }}</td>
-    <td>{{ x.name }}</td>
-    <td>{{ x.age }}</td>
-      <td>{{ x.status }}</td>
-       <td>{{ x.title }}</td>
-        <td>{{ x.salary }}</td>
-        
-  </tr>
-   </table>
-  </div>
-   <br>
- 
- <script>
-
-  var mainapp = angular.module("mainApp", []);
-   var url='https://mywebdemost.mybluemix.net/employees';
-   
-
-   mainapp.controller("empCtrl", function($scope, $http) {
-     
-    $http.get('https://mywebdemost.mybluemix.net/employees').then(function(response) {
-              $scope.employees = response.data;
+      </tr>
+    </table>
+         <table>
+            <tr>
+               <th>id</th>
+               <th>Name</th>
+               <th>age</th>
+               <th>Title</th>
+               <th>Salary</th>
+            </tr>
+         
+            <tr ng-repeat = "student in myWelcome">
+              <td>{{ student._id }}</td>
+               <td>{{ student.name }}</td>
+               <td>{{ student.age }}</td>
+                <td>{{ student.title }}</td>
+               <td>{{ student.salary}}</td>
+            </tr>
+         </table>
+         <hr>
+         <form name = "studentForm" novalidate>
+            <table border = "0">
+               <tr>
+                  <td>Enter first name:</td>
+                  <td><input name = "firstname" type = "text" ng-model = "firstName" required>
+                     <span style = "color:red" ng-show = "studentForm.firstname.$dirty && studentForm.firstname.$invalid">
+                        <span ng-show = "studentForm.firstname.$error.required">First Name is required.</span>
+                     </span>
+                  </td>
+               </tr>
+               
+               <tr>
+                  <td>Enter last name: </td>
+                  <td><input name = "lastname"  type = "text" ng-model = "lastName" required>
+                     <span style = "color:red" ng-show = "studentForm.lastname.$dirty && studentForm.lastname.$invalid">
+                        <span ng-show = "studentForm.lastname.$error.required">Last Name is required.</span>
+                     </span>
+                  </td>
+               </tr>
+               
+               <tr>
+                  <td>Email: </td><td><input name = "email" type = "email" ng-model = "email" length = "100" required>
+                     <span style = "color:red" ng-show = "studentForm.email.$dirty && studentForm.email.$invalid">
+                        <span ng-show = "studentForm.email.$error.required">Email is required.</span>
+                        <span ng-show = "studentForm.email.$error.email">Invalid email address.</span>
+                     </span>
+                  </td>
+               </tr>
+               
+               <tr>
+                  <td>
+                     <button ng-click = "reset()">Reset</button>
+                  </td>
+                  <td>
+                     <button ng-disabled = "studentForm.firstname.$dirty &&
+                        studentForm.firstname.$invalid || studentForm.lastname.$dirty &&
+                        studentForm.lastname.$invalid || studentForm.email.$dirty &&
+                        studentForm.email.$invalid" ng-click="submit()">Submit</button>
+                  </td>
+               </tr>
+					
+            </table>
+         </form>
+      </div>
+      
+      <script>
+         var mainApp = angular.module("mainApp", []);
+         
+         mainApp.controller('studentController', function($scope, $http) {
+            $scope.reset = function(){
+               $scope.firstName = "Mahesh";
+               $scope.lastName = "Parashar";
+               $scope.email = "MaheshParashar@tutorialspoint.com";
+            }
+            
+            $scope.reset();
+           
+            $http.get('https://mywebdemost.mybluemix.net/employees').then(function(response) {
+              $scope.myWelcome = response.data;
           });
-    
-});
-  
- </script> 
 
-        
-  
-</body>          
-</html>   
+         });
+      </script>
+      
+   </body>
+</html>
