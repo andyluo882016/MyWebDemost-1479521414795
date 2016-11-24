@@ -42,7 +42,7 @@ app.get('/search', function(req, res) {
 });
 
 app.get('/AllImages', function(req, res) {
-     res.render("employee", {});
+     res.render('employee', {});
      
 });
 // start server on the specified port and binding host
