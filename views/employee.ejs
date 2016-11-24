@@ -24,43 +24,24 @@
     
     <table border="1" style="width:50%">
      <tr>
+      <td>ID: </td> 
     <td>Name</td>
-    <td>ID: </td> 
-    <td>IMages</td>
+    <td>Age </td>
+     <td>status </td>
+      <td>title</td> 
+       <td>salary </td> 
+    <td>Image</td>
   </tr>
-       <tr ng-repeat=" en in students">
-       <td>{{en.name}}</td>
-       <td>{{en.isbn}}</td>
-       <td> <img width="100" ng-src="{{en.image}}"></td>
-       </tr>
-    </table><br><hr>
-  <table border="1" style="width:50%">
-     <tr>
-    <td>Name</td>
-    <td>Age: </td>
-    <td>Salary</td> 
-    <td>IMages</td>
-  </tr>
-       <tr ng-repeat=" em in names">
-       <td>{{em.name}}</td>
-       <td>{{em.age}}</td>
-       <td>{{em.salary}}</td>
-       <td> <img width="100" ng-src="{{em.image}}"></td>
-       </tr>
-    </table>
-   <br>
-   <table>
-
-  <tr ng-repeat="x in employees ">
+      <tr ng-repeat="x in employees ">
      <td>{{ x._id }}</td>
     <td>{{ x.name }}</td>
     <td>{{ x.age }}</td>
       <td>{{ x.status }}</td>
        <td>{{ x.title }}</td>
         <td>{{ x.salary }}</td>
-         <td>{{ x.image }}</td>
+         <td><img width="100" ng-src="{{x.image}}"></td>
   </tr>
-</table>
+   </table>
   </div>
    <br>
  
