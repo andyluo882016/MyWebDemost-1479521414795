@@ -43,8 +43,7 @@
                <th>Title</th>
                <th>Salary</th>
                <th>Image</th>
-            </tr>
-         
+            </tr>     
             <tr ng-repeat = "student in myWelcome">
               <td>{{ student._id }}</td>
                <td>{{ student.name }}</td>
@@ -60,6 +59,17 @@
 
        <p><input type="text" ng-model="tdas"></p>
          <hr>
+         <div>
+          <video src="images/movie.mp4"  width="300" height="200" controls>
+   Your browser does not support the <video> element.   
+</video>
+
+<video width="320" height="240" controls>
+  <source src="images/movie.mp4" type="video/mp4">
+  <source src="movie.ogg" type="video/ogg">
+  Your browser does not support the video tag.
+</video>
+         </div>
        <table>
            <tr>
                <th>Name</th>
